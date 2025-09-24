@@ -1,10 +1,3 @@
----
-marp: false
-theme: academic
-paginate: true
-math: mathjax
----
-
 # Miniforge + VS Code によるPython/R 環境構築(Mac編)
 
 ## はじめに
@@ -280,7 +273,7 @@ python -m ipykernel install --user --name ds --display-name "Python(ds)"
 
 ![mac_ipykernel](screenshots/mac_ipykernel.png)
 
-ターミナルの出力に`Installed kernelspec ds in /Users/tam/Library/Jupyter/kernels/ds`と表示されれば成功です。これは、仮想環境dsをVS Codeで使う準備を行なったというメッセージです。
+ターミナルの出力に`Installed kernelspec ds in ...`と表示されれば成功です。これは、仮想環境dsをVS Codeで使う準備を行なったというメッセージです。
 
 ### ここでブレイク🍵
 
