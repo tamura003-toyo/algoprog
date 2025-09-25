@@ -2,15 +2,27 @@
 
 ## はじめに
 
-データサイエンスや機械学習の分野で研究・開発を行うためには、安定したプログラミング環境が欠かせません。
+データサイエンスや機械学習の分野で研究・開発を行うためには、使いやすいプログラミング環境が欠かせません。
 本資料では、次の2つのツールを導入していきます。
 
 * **Miniforge（ミニフォージ）**：
 Python の代表的な環境構築ツール conda を、より軽量かつ最新の形で利用できる仕組みです。データ解析や AI 開発に必要なライブラリを簡単に追加でき、さらに Jupyter Notebook（ジュピター） を通じて、コードと文章・図を組み合わせた“実験ノート”を作ることだってできます。
   * [余談だけど重要なこと] これまで世界中の大学では、学生にAnaconda(アナコンダ)という名称の無料の環境構築ツールをインストールするよう指示してきました。ところが2020年くらいから、たとえ大学であっても大人数授業で使う場合は、Anacondaの利用に際して料金を支払うようにライセンスが改悪されてしまいました。それでは困るので、同じような機能かつ*無償利用が保証され、しかもMacではAnacondaよりも動作が早い*、Miniforgeを採用する企業や大学が増えてきています。
-* **Visual Studio Code（VS Code／ブイエスコード）**：Microsoft 社が開発する高機能エディタで、Python や R を効率よく書くための便利な機能が豊富にそろっています。世界中の学生・研究者・エンジニアに利用されており、プログラミング学習から実務まで幅広く活用できます。当然、無料で使うことができます。
+* **Visual Studio Code（VS Code／ブイエスコード）**：Microsoft 社が開発する高機能エディタで、Python や R を効率よく書くための便利な機能が豊富にそろっています。世界中の学生・研究者・エンジニアに利用されており、プログラミング学習から実務まで幅広く活用できます。当然、無料で使えます。
 
 これらを組み合わせて使うことで、授業や研究だけでなく、業界でも通用する「プロフェッショナルな作業環境」を自分のPCに整えることができます。
+
+下図が環境のイメージです。
+
+* JupyterとPythonに関しては、Miniforgeが常にきちんと動くように面倒を見てくれる
+* Visual Studio Codeの中で、プログラムを書いて、Jupyter経由でPythonとRに実行させる
+
+![vscode_ecosystem](screenshots/vscode_ecosystem.png)
+
+1回この環境を完成させれば、卒業まで困ることはありません。頑張ってまいりましょう。ひとつだけ注意点をお伝えします。
+
+ここで行う作業の後半では、「半角文字でコマンドを入力する」という慣れない操作を行うことがあります。この操作は煩雑に見えますが、最も簡単なやり方は、書かれいてるコマンドを慎重に選択→コピーして、ペーストする(貼り付ける)ことです。コピーとペーストはマウスやタッチバッドのの右クリックで実行できます。
+
 
 ## インストール作業を始める前の準備
 
@@ -20,7 +32,7 @@ Python の代表的な環境構築ツール conda を、より軽量かつ最新
 
 画面左上端に林檎マークのアイコンがあり、これをクリックして「**このMacについて**」を選択します。
 
-![about mac 70%](screenshots/mac_systemcheck.png)
+![about mac](screenshots/mac_systemcheck.png)
 
 出現するウィンドウには、機種名の下に**チップ**という項目があり、そこにCPUの名称が書かれています。
 
@@ -120,7 +132,7 @@ Enterキーをタイプすると、ライセンスが表示されます。私た
 
 ![mac_mf5](screenshots/mac_mf5.png)
 
-その結果、Macに最初から作られている「共有」フォルダの中に「miniforge3」フォルダが新規作成され、Miniforgeシステムを構成するファイルたち(Pythonなど...)がコピーされていきます。
+その結果、Macに最初から作られている「共有」フォルダの中に「miniforge3」フォルダが新規作成され、Miniforgeシステムを構成するファイルたち(Pythonなど)がコピーされていきます。
 
 ![mac_mf6](screenshots/mac_mf6.png)
 
@@ -128,15 +140,24 @@ Enterキーをタイプすると、ライセンスが表示されます。私た
 
 最後にもうひとつ質問が表示されます。Miniforgeでは`conda`というコマンドを使ってPython環境を管理します。そこで、「あなたのMacのPython系プログラム・アプリはもう全て`conda`の管理に任せますか？」という質問なのです。
 
-![mac_mf7](screenshots/mac_mf7.png)
+```zsh
+Transaction finished
 
-経験的にこれはお勧めできません<small>（理由：MacにはOS独自のPythonが入っていて、これがMac OSの一部を制御していることもある。`conda`に含まれているPythonを使うと、Macの挙動がおかしくなる可能性があるため）</small>。
+installation finished.
+Do you wish to update your shell profile to automatically initialize conda?
+This will activate conda on startup and change the command prompt when activated.
+If you'd prefer that conda's base environment not be activated on startup,
+   run the following command when conda is activated:
 
-よって、この最後の質問には **「No」で対応します。やり方は簡単で、何もタイプせずに単にENTERするだけです**。 すると、インストール完了の表示が現れます：
+conda config --set auto_activate_base false
 
-![mac_mf8](screenshots/mac_mf8.png)
+You can undo this by running `conda init --reverse $SHELL`? [yes|no]
+[no] >>> 
+```
 
-ターミナルの上の方に`installation finished`と表示され、最終行に`Thank you for installing Miniforge3!`と表示されていれば、成功です。**以上の作業で、MiniforgeはみなさんのMacにインストールされました！**
+この最後の質問には 「Yes」で対応します。`yes` (すべて半角小文字)とタイプして、`[ENTER]`します。
+
+ターミナルに`Thank you for installing Miniforge3!`と表示されていれば、成功です。**以上の作業で、MiniforgeはみなさんのMacにインストールされました！**
 
 #### 注意
 
@@ -146,18 +167,11 @@ Enterキーをタイプすると、ライセンスが表示されます。私た
 
 ## Pythonプログラミング環境の初期設定
 
-### condaコマンドを使えるようにする
+### condaコマンドが使えるかどうか確認する
 
-Pythonプログラミング環境を準備したり整えたりするツールが`conda`(コンダ)です。ターミナルで`conda`を使えるように設定します。
+Pythonプログラミング環境を準備したり整えたりするツールが`conda`(コンダ)です。ターミナルで`conda`を使えるかどうか確認します。
 
-※ もし、インストール先フォルダが`/Users/Shared/miniforge3`ではなくみなさんのホームフォルダである場合は、この作業は不要です。
 
-ターミナルで、次のコマンドを入力します。少し複雑かつ長いコマンドなので、コピペするのが確実です。このコマンドは2行あります(`source ~/.zshrc`が2行目)。2行分コピーして、ちょっと前に実行したターミナルにペースト(貼り付け)を実行します。
-
-```zsh
-echo 'export PATH="/Users/Shared/miniforge3/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
-```
 
 実行してもターミナルには特に変化がおきませんが、これによって`conda`コマンドが使えるようになっているはずです。ターミナルに`conda [ENTER]`と入力し、下のような出力が現れることを確認しましょう。
 
@@ -169,7 +183,15 @@ source ~/.zshrc
 conda: command not found
 ```
 
-**と出力されたら、ターミナルでcondaコマンドが使えないことを意味しますので、失敗です。上で貼り付けた2行コマンドを正確に貼り付け直してください。** または、私に問い合わせてください。
+と出力されたら、ターミナルでcondaコマンドが使えないことを意味します。
+ターミナルで、次のコマンドを入力します。少し複雑かつ長いコマンドなので、コピペするのが確実です。このコマンドは2行あります(`source ~/.zshrc`が2行目)。2行分コピーして、ちょっと前に実行したターミナルにペースト(貼り付け)を実行します。
+
+```zsh
+/Users/Shared/miniforge3/bin/conda init zsh
+source ~/.zshrc
+```
+
+もう一度`conda [ENTER]`を試して、ちゃんと起動することを確認してください。
 
 ### 初期設定1：Miniforgeを最新の内容に更新
 
@@ -403,7 +425,4 @@ VS Codeはデフォルトでは英語表示になっています。ウィンド�
 
 以上でPython+Rのプログラミング環境の基本設定は完成です！
 
-ターミナルを終了してOKです（当分使いません）。
-
-## 動作確認
-
+VSCodeとターミナルを終了してOKです。
