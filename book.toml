@@ -1,0 +1,14 @@
+[book]
+title = "アルゴリズムとプログラミング"
+authors = ["Ryuichi Tamura"]
+language = "ja"
+
+[build]
+create-missing = true
+
+# HTML 出力設定
+[output.html]
+default-theme = "light"
+
+# KaTeX（数式）を有効化
+[preprocessor.katex]
