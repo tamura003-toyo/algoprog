@@ -1,3 +1,10 @@
+# Mac
+.DS_Store
+Icon?
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
