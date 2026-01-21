@@ -1,0 +1,29 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: bb1a4caf-bccb-440b-9f54-fff26c8f0f70
+  title: "アルゴリズムとプログラミング"
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/tamura003-toyo/algoprog
+  # To autogenerate a Table of Contents, run "myst init --write-toc"
+site:
+  title: "algoprog"
+  nav:
+    - title: "ホーム"
+    - url: /index
+    - title: "講義"
+      children:
+        - title: "パート1"
+          url: part1
+        - title: "パート2"
+          url: part2
+        - title: "パート3"
+          url: part3
+  toc:
+    maxdepth: 3
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
