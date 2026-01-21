@@ -2,7 +2,7 @@
 version: 1
 project:
   id: bb1a4caf-bccb-440b-9f54-fff26c8f0f70
-  title: "アルゴリズムとプログラミング"
+  title: "FDS「アルゴリズムとプログラミング」独習用サポートサイト"
   description: "授業マテリアル関連"
   # keywords: []
   authors: ["Ryuichi Tamura"]
@@ -11,20 +11,25 @@ project:
   toc:
     - file: index.md
       title: "ホーム"
-    - title: "講義"
+    - title: "まとめ"
       children:
         - file: part1.md
           title: "Part 1"
         - file: part2.md
           title: "Part 2"
-        - file: part3.md
-          title: "Part 3"
+        - file: part1_quiz.md
+          title: "Part 1：試験対策問題"
+        - file: part2_quiz.md
+          title: "Part 2: 試験対策問題"
 site:
-  title: "アルゴリズムとプログラミング"
-  baseurl: /algoprog
+  title: "FDS「アルゴリズムとプログラミング」独習用サポートサイト"
   template: book-theme
   options:
-    branding: 
+    logo_text: "アルゴリズムとプログラミング"
+    logo_url: "/"
+    outline_maxdepth: 1
+    baseurl: /algoprog
+    branding:
       text: "FDSサポートサイト"
       url: https://tamura003-toyo.github.io/algoprog/
   #   favicon: favicon.ico
