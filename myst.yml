@@ -21,6 +21,7 @@ project:
           title: "Part 3"    
 site:
   title: "アルゴリズムとプログラミング"
+  baseurl: /algoprog
   template: book-theme
   # options:
   #   favicon: favicon.ico
