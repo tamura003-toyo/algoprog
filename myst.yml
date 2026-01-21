@@ -18,11 +18,14 @@ project:
         - file: part2.md
           title: "Part 2"
         - file: part3.md
-          title: "Part 3"    
+          title: "Part 3"
 site:
   title: "アルゴリズムとプログラミング"
   baseurl: /algoprog
   template: book-theme
-  # options:
+  options:
+    branding: 
+      text: "FDSサポートサイト"
+      url: https://tamura003-toyo.github.io/algoprog/
   #   favicon: favicon.ico
   #   logo: site_logo.png
