@@ -19,8 +19,12 @@ project:
           title: "Part 2"
         - file: part1_quiz.md
           title: "Part 1：試験対策問題"
+        - file: part1_quiz_ans.md
+          title: "Part 1: 解答"
         - file: part2_quiz.md
           title: "Part 2: 試験対策問題"
+        - file: part2_quiz_ans.md
+          title: "Part 2: 解答"
         - file: part3.md
           title: "Part 3"
         - file: part3_quiz.md
