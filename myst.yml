@@ -21,6 +21,11 @@ project:
           title: "Part 1：試験対策問題"
         - file: part2_quiz.md
           title: "Part 2: 試験対策問題"
+        - file: part3.md
+          title: "Part 3"
+        - file: part3_quiz.md
+          title: "Part 3: 試験対策問題"
+
 site:
   title: "FDS「アルゴリズムとプログラミング」独習用サポートサイト"
   template: book-theme
