@@ -29,6 +29,10 @@ project:
           title: "Part 3"
         - file: part3_quiz.md
           title: "Part 3: 試験対策問題"
+        - file: part4.md
+          title: "Part 4"
+        - file: part4_quiz.md
+          title: "Part 4: 試験対策問題"          
 
 site:
   title: "FDS「アルゴリズムとプログラミング」独習用サポートサイト"
